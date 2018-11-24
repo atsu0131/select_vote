@@ -1,0 +1,8 @@
+%h3.title 選挙一覧
+%table
+  %thead
+    %tr
+      %th 名前
+  %tbody
+    - @selections.each do |selection|
+      %td= selection.select_name
