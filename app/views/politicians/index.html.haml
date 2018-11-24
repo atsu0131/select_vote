@@ -1,0 +1,9 @@
+%h3.title 政治家一覧
+%table
+  %thead
+    %tr
+      %th 名前
+  %tbody
+    - @politicians.each do |politician|
+      %tr
+        %td= link_to "#{politician.name}", pref_politician_path(@pref, politician)
