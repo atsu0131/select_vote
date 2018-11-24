@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181123102425) do
+ActiveRecord::Schema.define(version: 20181124021354) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "politicians", force: :cascade do |t|
+    t.string "name"
+    t.string "pref"
+    t.integer "age"
+    t.string "sex"
+    t.text "info"
+    t.boolean "active"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_politicians_on_user_id"
+  end
 
   create_table "selections", force: :cascade do |t|
     t.string "select_name"
@@ -34,4 +47,24 @@ ActiveRecord::Schema.define(version: 20181123102425) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "vote_actions", force: :cascade do |t|
+    t.bigint "voter_id"
+    t.bigint "politician_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["politician_id"], name: "index_vote_actions_on_politician_id"
+    t.index ["voter_id"], name: "index_vote_actions_on_voter_id"
+  end
+
+  create_table "voters", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "selection_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["selection_id"], name: "index_voters_on_selection_id"
+    t.index ["user_id"], name: "index_voters_on_user_id"
+  end
+
+  add_foreign_key "vote_actions", "politicians"
+  add_foreign_key "vote_actions", "voters"
 end

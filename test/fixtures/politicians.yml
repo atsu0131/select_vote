@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: 
+  pref: 
+  age: 
+  sex: 
+  info: 
+  active: false
+
+two:
+  name: 
+  pref: 
+  age: 
+  sex: 
+  info: 
+  active: false
