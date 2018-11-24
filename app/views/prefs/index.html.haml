@@ -1,0 +1,6 @@
+%div{:style => "width: 65%;,height:20%;"}
+  %ul.jp_map
+    - @prefs.each do |pref|
+      %li
+        = link_to "#{pref.pref_name}", pref_path(pref)
+

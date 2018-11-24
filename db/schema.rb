@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181124021354) do
+ActiveRecord::Schema.define(version: 20181124054347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,13 @@ ActiveRecord::Schema.define(version: 20181124021354) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_politicians_on_user_id"
+  end
+
+  create_table "prefs", force: :cascade do |t|
+    t.string "pref_name", null: false
+    t.string "pref_info"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "selections", force: :cascade do |t|
