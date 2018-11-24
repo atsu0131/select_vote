@@ -5,4 +5,5 @@
       %th 名前
   %tbody
     - @selections.each do |selection|
-      %td= selection.select_name
+      %tr
+        %td= link_to "#{selection.select_name}", selection_voters_path(selection)
