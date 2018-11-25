@@ -1,1 +1,17 @@
 %h3 #{@selection.select_name}の選挙
+
+
+= link_to "投票事前登録", new_selection_voter_path
+
+.mb-3
+%table.table.table-hover
+  %thead.thead-default
+    %tr
+      %th name
+      %th
+  %tbody
+    - @voters.each do |voter|
+      %tr
+        %td= voter.user.name
+        %td= voter.nickname
+        %td= link_to "削除",selection_voter_path(@selection, voter), method: :delete, data: { confirm: "削除します"}, class: "btn btn-danger"
