@@ -22,6 +22,10 @@ class VotersController < ApplicationController
     end
   end
 
+  def show
+    @voter = Voter.find(params[:id])
+  end
+
 
   def destroy
     @voter = Voter.find(params[:id])
