@@ -1,7 +1,7 @@
 class VotersController < ApplicationController
   def index
     @selection = Selection.find(params[:selection_id])
-    @voters = Voter.where(user_id: current_user)
+    @voters = Voter.where(user_id: current_user).where(selection_id: @selection.id)
   end
 
   def new
@@ -11,7 +11,7 @@ class VotersController < ApplicationController
 
   def create
     @selection = Selection.find(params[:selection_id])
-    @voter = @selection.voters.build
+    @voter = @selection.voters.build(voter_params)
     @voter.user_id = current_user.id
     @voter.selection_id = @selection.id
 
