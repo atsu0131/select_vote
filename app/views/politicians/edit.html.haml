@@ -1,0 +1,7 @@
+= form_with model: [@pref, @politician], local: true do |f|
+  .form-group
+    = f.label :name, "名前登録"
+    = f.text_field :name, class: "form-control"
+    = f.label :pref_id, "都道府県"
+    = f.collection_select :pref_id, Pref.all, :id, :pref_name, {prompt: "エリアを選択"}, {class: "form-control"}
+  = f.submit "登録する", class: "btn btn-primary"
