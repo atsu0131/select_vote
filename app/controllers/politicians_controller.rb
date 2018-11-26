@@ -9,6 +9,8 @@ class PoliticiansController < ApplicationController
   end
 
   def new
+    @pref = Pref.find(params[:pref_id])
+    @politician = @pref.politicians.build
   end
 
   def edit
@@ -18,6 +20,20 @@ class PoliticiansController < ApplicationController
   end
 
   def create
+    @pref = Pref.find(params[:pref_id])
+    @politician = @pref.politicians.build(politician_params)
+    @politician.user_id = current_user.id
+
+    if @politician.save
+      redirect_to pref_politicians_path(@pref)
+    else
+      render :new
+    end
   end
 
+  private
+
+  def politician_params
+    params.require(:politician).permit(:user_id, :pref_id, :name, :pref)
+  end
 end
