@@ -8,4 +8,4 @@
     - @politicians.each do |politician|
       %tr
         %td= link_to "#{politician.name}", pref_politician_path(@pref, politician, @voter)
-        %td= link_to '投票する', selection_voter_vote_actions_path(pref_id: @pref.id, politician_id: politician.id, selection_id: @selection.id, voter_id: @voter.id), method: :post, class: 'btn btn-primary'
+        %td= link_to '投票する', selection_voter_vote_actions_path(pref_id: @pref.id, politician_id: politician.id, selection_id: @selection.id, voter_id: @voter.id), method: :post, class: 'btn btn-primary', data: { confirm: "#{politician.name}氏の投票でよろしいですか？"}
