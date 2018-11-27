@@ -3,4 +3,5 @@ class Pref < ApplicationRecord
 
   has_many :politicians, dependent: :destroy
   has_many :users, dependent: :destroy
+  has_many :zones, dependent: :destroy
 end

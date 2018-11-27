@@ -24,6 +24,8 @@ class VotersController < ApplicationController
 
   def show
     @voter = Voter.find(params[:id])
+    @pref = Pref.find(params[:id])
+    @politicians = Politician.all
   end
 
 
