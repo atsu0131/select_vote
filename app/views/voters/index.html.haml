@@ -17,4 +17,7 @@
         %td= voter.user.name
         %td= voter.nickname
         %td= link_to "削除", selection_voter_path(@selection, voter), method: :delete, data: { confirm: "削除します"}, class: "btn btn-danger"
-        %td= link_to "投票を行う", selection_voter_path(@selection, voter), class: "btn btn-success"
+        - unless voter.vote_actions.present?
+          %td= link_to "投票を行う", selection_voter_path(@selection, voter), class: "btn btn-success"
+        - else
+          %td= "なし"
