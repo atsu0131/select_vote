@@ -7,17 +7,18 @@
 %table.table.table-hover
   %thead.thead-default
     %tr
-      %th name
-      %th nickname
+      %th 自分の氏名
+      %th 投票した人
       %th
       %th
   %tbody
     - @voters.each do |voter|
       %tr
         %td= voter.user.name
-        %td= voter.nickname
-        %td= link_to "やり直す", selection_voter_path(@selection, voter), method: :delete, data: { confirm: "削除します"}, class: "btn btn-danger"
-        - unless voter.vote_actions.present?
-          %td= link_to "投票を行う", selection_voter_path(@selection, voter), class: "btn btn-success"
-        - else
-          %td= "投票済"
+        - voter.vote_politicians.each do |action|
+          %td= action.name
+          %td= link_to "やり直す", selection_voter_path(@selection, voter), method: :delete, data: { confirm: "削除します"}, class: "btn btn-danger"
+          - unless voter.vote_actions.present?
+            %td= link_to "投票を行う", selection_voter_path(@selection, voter), class: "btn btn-success"
+          - else
+            %td= "投票済"
