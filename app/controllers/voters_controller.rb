@@ -23,9 +23,11 @@ class VotersController < ApplicationController
   end
 
   def show
+    @selection = Selection.find(params[:selection_id])
     @voter = Voter.find(params[:id])
     @pref = Pref.find(params[:id])
     @politicians = Politician.all
+    @vote_action = @voter.vote_actions.build
   end
 
 
@@ -38,7 +40,7 @@ class VotersController < ApplicationController
   private
 
   def voter_params
-    params.require(:voter).permit(:user_id, :selection_id, :nickname)
+    params.require(:voter).permit(:user_id, :selection_id, :nickname, :pref_id, :politician_id)
   end
 
 end

@@ -3,7 +3,12 @@
   %thead
     %tr
       %th 名前
+      %th
   %tbody
     - @politicians.each do |politician|
       %tr
-        %td= link_to "#{politician.name}", pref_politician_path(@pref, politician)
+        %td= link_to "#{politician.name}", pref_politician_path(@pref, politician, @voter)
+        - if vote_action.present?
+          %td= link_to '投票をやめる', selection_voter_vote_action_path(vote_action_id: @vote_action.id, voter_id: @voter.id), method: :delete, class: 'btn btn-danger'
+        - else
+          %td= link_to '投票する', selection_voter_vote_actions_path(pref_id: @pref.id, politician_id: politician.id, selection_id: @selection.id, voter_id: @voter.id), method: :post, class: 'btn btn-primary'

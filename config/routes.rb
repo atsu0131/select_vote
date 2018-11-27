@@ -8,7 +8,9 @@ Rails.application.routes.draw do
 
   resources :users
     resources :selections do
-      resources :voters
+      resources :voters do
+        resources :vote_actions, only: [:create, :destroy]
+      end
     end
 
   namespace :admin do
