@@ -6,6 +6,9 @@
     = f.label :email, "メール"
     = f.text_field :email, class: "form-control"
   .form-group
+    = f.label :pref_id, "都道府県"
+    = f.collection_select :pref_id, Pref.all, :id, :pref_name, {prompt: "エリアを選択"}, {class: "form-control"}
+  .form-group
     = f.label :age, "年齢"
     = f.number_field :age, class: "form-control"
   .form-check

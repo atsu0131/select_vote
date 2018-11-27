@@ -9,6 +9,7 @@
       %th name
       %th email
       %th admin
+      %th pref
       %th create
       %th update
       %th
@@ -18,6 +19,7 @@
         %td= link_to user.name, [:admin, user]
         %td= user.email
         %td= user.admin? ? "あり" : "なし"
+        %td= user.pref.pref_name
         %td= user.created_at
         %td= user.updated_at
         %td
