@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181127022951) do
+ActiveRecord::Schema.define(version: 20181127130658) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,7 +67,9 @@ ActiveRecord::Schema.define(version: 20181127022951) do
     t.bigint "politician_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "selection_id"
     t.index ["politician_id"], name: "index_vote_actions_on_politician_id"
+    t.index ["selection_id"], name: "index_vote_actions_on_selection_id"
     t.index ["voter_id"], name: "index_vote_actions_on_voter_id"
   end
 
@@ -91,5 +93,6 @@ ActiveRecord::Schema.define(version: 20181127022951) do
   add_foreign_key "users", "prefs"
   add_foreign_key "users", "zones"
   add_foreign_key "vote_actions", "politicians"
+  add_foreign_key "vote_actions", "selections"
   add_foreign_key "vote_actions", "voters"
 end
