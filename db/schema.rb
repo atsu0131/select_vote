@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181127013105) do
+ActiveRecord::Schema.define(version: 20181127022951) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,8 +26,10 @@ ActiveRecord::Schema.define(version: 20181127013105) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "pref_id"
+    t.bigint "zone_id"
     t.index ["pref_id"], name: "index_politicians_on_pref_id"
     t.index ["user_id"], name: "index_politicians_on_user_id"
+    t.index ["zone_id"], name: "index_politicians_on_zone_id"
   end
 
   create_table "prefs", force: :cascade do |t|
@@ -55,7 +57,9 @@ ActiveRecord::Schema.define(version: 20181127013105) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "pref_id"
+    t.bigint "zone_id"
     t.index ["pref_id"], name: "index_users_on_pref_id"
+    t.index ["zone_id"], name: "index_users_on_zone_id"
   end
 
   create_table "vote_actions", force: :cascade do |t|
@@ -77,7 +81,15 @@ ActiveRecord::Schema.define(version: 20181127013105) do
     t.index ["user_id"], name: "index_voters_on_user_id"
   end
 
+  create_table "zones", force: :cascade do |t|
+    t.string "zone_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "politicians", "zones"
   add_foreign_key "users", "prefs"
+  add_foreign_key "users", "zones"
   add_foreign_key "vote_actions", "politicians"
   add_foreign_key "vote_actions", "voters"
 end

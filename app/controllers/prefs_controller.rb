@@ -1,6 +1,7 @@
 class PrefsController < ApplicationController
   def index
-    @prefs = Pref.all
+    nums = [*(1..47)]
+    @prefs = Pref.where(id: nums)
   end
 
   def show

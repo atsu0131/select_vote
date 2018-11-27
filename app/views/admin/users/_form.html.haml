@@ -9,6 +9,9 @@
     = f.label :pref_id, "都道府県"
     = f.collection_select :pref_id, Pref.all, :id, :pref_name, {prompt: "エリアを選択"}, {class: "form-control"}
   .form-group
+    = f.label :zone_id, "選挙区"
+    = f.collection_select :zone_id, Zone.all, :id, :zone_name, {prompt: "エリアを選択"}, {class: "form-control"}
+  .form-group
     = f.label :age, "年齢"
     = f.number_field :age, class: "form-control"
   .form-check
