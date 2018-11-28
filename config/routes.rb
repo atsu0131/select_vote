@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resources :toppages
     resources :users
   end
 
