@@ -6,5 +6,5 @@
   %tbody
     - @politicians.each do |politician|
       %tr
-        %td= link_to "#{politician.name}", pref_politician_path(politician)
+        %td= link_to "#{politician.name}", pref_politician_path(@pref, politician, @voter)
         %td= "#{politician.vote_actions.where(politician_id: politician).count}" "票"
