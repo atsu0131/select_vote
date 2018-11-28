@@ -1,0 +1,102 @@
+.photo{
+  height: 10vw;
+  width: 10vw;
+  background-color:green;
+  margin-left: 10%;
+}
+
+.test-color1{
+  background-color: wheat;
+  width: 100vw;
+  height: 20vw;
+}
+
+.test-color2{
+  background-color: green;
+  width: 100vw;
+  height: 20vw;
+}
+
+.test-color3{
+  background-color:blue;
+  width: 100vw;
+  height: 20vw;
+}
+
+.header{
+  height: 50px;
+  width: 100%;
+  background-color: green;
+}
+
+.front{
+  font-size: 120%;
+  margin-left: 10%;
+  color: #fff;
+
+}
+
+.row_front{
+  height: 50px;
+  width:100%;
+  margin-top:15px;
+}
+/*
+
+/* ------------------------------------- /
+/   Header
+/* ------------------------------------- */
+#header {
+  padding-top: 20px;
+  background-color: #eee;
+}
+
+/*  logo
+/--------------------------------- */
+.logo{
+  text-align: center;
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+.logo h1 { /* 丸とフォントのスタイリング */
+  margin: 0;
+  padding-top: 38px;
+  width: 100px;
+  height: 100px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  font-size: 26px;
+  color: #7E7E7E;
+  background-color: #fff;
+}
+
+/*  nav
+/*--------------------------------- */
+/* .navbar {
+  border-radius: 0;
+}
+
+.navbar-nav {
+  float: none;
+  width: 400px;
+  margin: 10px auto;
+}
+
+.navbar-nav > li {
+  text-align: center;
+  float: left;
+  width: 80px;
+  border-right: 1px solid #555;
+}
+.navbar-nav > li.first {
+  border-left: 1px solid #555;
+}
+
+.navbar-nav > li > a {
+  padding-top: 5px;
+  padding-bottom: 5px;
+} */

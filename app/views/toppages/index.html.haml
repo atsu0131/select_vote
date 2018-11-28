@@ -1,2 +1,63 @@
-= link_to '選挙一覧', selections_path
-= link_to 'マップ確認', prefs_path
+
+
+
+%head
+  %meta{:charset => "utf-8"}/
+  %script{:src => "jquery.min.js", :type => "text/javascript"}
+  %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css", :rel => "stylesheet"}/
+%body
+  %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.min.js"}
+  #header
+    .logo
+      %h1 電子投票
+    / /logo
+    %nav.navbar.navbar-default{:role => "navigation"}
+      .container
+        / Brand and toggle get grouped for better mobile display
+        .navbar-header
+          %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %span.navbar-brand.visible-xs{:href => "#"} Menu
+        / Collect the nav links, forms, and other content for toggling
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          %ul.nav.navbar-nav
+            %li.first
+            %li= link_to 'マップ確認', prefs_path
+            %li
+            %li= link_to '選挙一覧', selections_path
+            %li
+          -# = search_form_for @q do |f|
+          -#   = f.label :name, "名前"
+          -#   = f.search_field :name
+          -#   .actions= f.submit "検索"
+        / /.navbar-collapse
+    / /nav
+  / /header
+  / Slider main container
+  .swiper-container
+    / Additional required wrapper
+    .swiper-wrapper
+      / Slides
+      .swiper-slide
+        .test-color1 Slide 1
+      .swiper-slide
+        .test-color2 Slide 1
+      .swiper-slide
+        .test-color3 Slide 1
+      \...
+    / If we need pagination
+    .swiper-pagination
+    / If we need navigation buttons
+    .swiper-button-prev
+    .swiper-button-next
+  :javascript
+    var mySwiper = new Swiper ('.swiper-container', {
+      effect: "flip",
+      loop: true,
+      pagination: '.swiper-pagination',
+      nextButton: '.swiper-button-next',
+      prevButton: '.swiper-button-prev',
+    })
