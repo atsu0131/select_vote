@@ -1,0 +1,10 @@
+%h3.title 選挙結果
+%table
+  %thead
+    %tr
+      %th 
+  %tbody
+    - @politicians.each do |politician|
+      %tr
+        %td= link_to "#{politician.name}", pref_politician_path(politician)
+        %td= "#{politician.vote_actions.where(politician_id: politician).count}" "票"
