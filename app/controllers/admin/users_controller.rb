@@ -1,6 +1,7 @@
 class Admin::UsersController < ApplicationController
   def index
-    @users = User.all
+    @q = User.search(params[:q])
+    @users = @q.result.all
   end
   def new
     @user = User.new
