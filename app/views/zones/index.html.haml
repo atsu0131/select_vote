@@ -1,0 +1,10 @@
+
+%h3.title 選挙
+%table
+  %thead
+    %tr
+      %th 選挙区
+  %tbody
+    - @zones.each do |zone|
+      %tr
+        %td= link_to "#{zone.zone_name}", pref_zone_path(@pref, zone)
