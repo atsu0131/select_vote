@@ -1,7 +1,7 @@
 class PoliticiansController < ApplicationController
   def index
-    @politicians = Politician.all
     @pref = Pref.find(params[:pref_id])
+    @politicians = Politician.where(pref_id: @pref.id)
   end
 
   def show

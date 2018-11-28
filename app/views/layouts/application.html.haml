@@ -7,22 +7,20 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    .app-title.navbar-navbar-expand-md.navbar-light.bg-light
-      .navber-brand
-
-    %ul.navbar-nav.ml-auto
-      %li.nav-item= link_to "ホーム", root_path, data: {"turbolinks" => false}
-      - if current_user
-        %li.nav-item= link_to "ログアウト", logout_path, method: :delete
-        - if current_user.admin?
-          %li.nav-item= link_to "ユーザー一覧", admin_users_path
-        - if current_user.admin?
-          %li.nav-item 権限者
+    %nav
+      %ul
+        %li.nav-item= link_to "ホーム", root_path, data: {"turbolinks" => false}
+        - if current_user
+          %li.nav-item= link_to "ログアウト", logout_path, method: :delete
+          - if current_user.admin?
+            %li.nav-item= link_to "ユーザー一覧", admin_users_path
+          - if current_user.admin?
+            %li.nav-item 権限者
+          - else
+            %li.nav-item 一般ユーザー
         - else
-          %li.nav-item 一般ユーザー
-      - else
-        %li.nav-item= link_to "新規登録", new_user_path
-        %li.nav-item= link_to "ログイン", login_path
+          %li.nav-item= link_to "新規登録", new_user_path
+          %li.nav-item= link_to "ログイン", login_path
 
     .container
       - if flash.notice.present?

@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.item{
+  height: 300px;
+  width: 30%;
+  background-color: #759ef4;
+  margin: 5%;
+}
