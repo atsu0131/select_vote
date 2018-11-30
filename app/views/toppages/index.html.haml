@@ -8,8 +8,7 @@
 %body
   %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.min.js"}
   #header
-    .logo
-      %h1 電子投票
+    %h1 電子投票
     / /logo
     %nav.navbar.navbar-default{:role => "navigation"}
       .container
@@ -61,3 +60,27 @@
       nextButton: '.swiper-button-next',
       prevButton: '.swiper-button-prev',
     })
+
+%h2.heading news
+%ul.scroll-list
+  %li.scroll-item
+    %time.date 111
+    %span.category.news NEWS
+    %span.title 更新しました
+  %li.scroll-item
+    %time.date 111
+    %span.category NEWS
+    %span.title 更新しました
+.clearfix
+  .article-box
+    %h3 test
+    %p test
+    %time.date 1111
+    %h3.title
+    %p.desc
+  .article-box
+    %h3 test
+    %p test
+    %time.date 1111
+    %h3.title
+    %p.desc
