@@ -36,41 +36,41 @@
     / /nav
   / /header
   / Slider main container
-  .swiper-container
-    / Additional required wrapper
-    .swiper-wrapper
-      / Slides
-      .swiper-slide
-        .test-color1 Slide 1
-      .swiper-slide
-        .test-color2 Slide 1
-      .swiper-slide
-        .test-color3 Slide 1
-      \...
-    / If we need pagination
-    .swiper-pagination
-    / If we need navigation buttons
-    .swiper-button-prev
-    .swiper-button-next
-  :javascript
-    var mySwiper = new Swiper ('.swiper-container', {
-      effect: "flip",
-      loop: true,
-      pagination: '.swiper-pagination',
-      nextButton: '.swiper-button-next',
-      prevButton: '.swiper-button-prev',
-    })
+  -# .swiper-container
+  -#   / Additional required wrapper
+  -#   .swiper-wrapper
+  -#     / Slides
+  -#     .swiper-slide
+  -#       .test-color1 Slide 1
+  -#     .swiper-slide
+  -#       .test-color2 Slide 1
+  -#     .swiper-slide
+  -#       .test-color3 Slide 1
+  -#     \...
+  -#   / If we need pagination
+  -#   .swiper-pagination
+  -#   / If we need navigation buttons
+  -#   .swiper-button-prev
+  -#   .swiper-button-next
+  -# :javascript
+  -#   var mySwiper = new Swiper ('.swiper-container', {
+  -#     effect: "flip",
+  -#     loop: true,
+  -#     pagination: '.swiper-pagination',
+  -#     nextButton: '.swiper-button-next',
+  -#     prevButton: '.swiper-button-prev',
+  -#   })
 
 %h2.heading news
 %ul.scroll-list
   %li.scroll-item
     %time.date 111
     %span.category.news NEWS
-    %span.title 更新しました
+    %span.title_new 更新しました
   %li.scroll-item
     %time.date 111
     %span.category NEWS
-    %span.title 更新しました
+    %span.title_new 更新しました
 .clearfix
   .article-box
     %h3 test

@@ -10,21 +10,40 @@
     .app-title.navbar-navbar-expand-md.navbar-light.bg-light
       .navber-brand
 
-    %ul.navbar-nav.ml-auto
-      %li.nav-item= link_to "ホーム", root_path, data: {"turbolinks" => false}
-      - if current_user
-        %li.nav-item= link_to "ログアウト", logout_path, method: :delete
-        - if current_user.admin?
-          %li.nav-item= link_to "ユーザー一覧", admin_users_path
-        - if current_user.admin?
-          %li.nav-item 権限者
-        - else
-          %li.nav-item 一般ユーザー
-      - else
-        %li.nav-item= link_to "新規登録", new_user_path
-        %li.nav-item= link_to "ログイン", login_path
+    -# %ul.navbar-nav.ml-auto
+    -#   %li.nav-item= link_to "ホーム", root_path, data: {"turbolinks" => false}
+    -#   - if current_user
+    -#     %li.nav-item= link_to "ログアウト", logout_path, method: :delete
+    -#     - if current_user.admin?
+    -#       %li.nav-item= link_to "ユーザー一覧", admin_users_path
+    -#     - if current_user.admin?
+    -#       %li.nav-item 権限者
+    -#     - else
+    -#       %li.nav-item 一般ユーザー
+    -#   - else
+    -#     %li.nav-item= link_to "新規登録", new_user_path
+    -#     %li.nav-item= link_to "ログイン", login_path
 
-    .container
-      - if flash.notice.present?
-        .alert.alert-success= flash.notice
-    = yield
+    -# .container
+    -#   - if flash.notice.present?
+    -#     .alert.alert-success= flash.notice
+%link{:href => "https://fonts.googleapis.com/css?family=Michroma", :rel => "stylesheet", :type => "text/css"}/
+%link{:href => "https://fonts.googleapis.com/css?family=Damion", :rel => "stylesheet", :type => "text/css"}/
+.menu
+  .menuItem.uno
+    1
+    %span uno
+  .menuItem.dos
+    2
+    %span dos
+  .menuItem.tres
+    3
+    %span tres
+  .menuItem.cuatro
+    4
+    %span cuatro
+  .menuItem.cinco
+    5
+    %span cinco
+.contents_main
+  = yield
