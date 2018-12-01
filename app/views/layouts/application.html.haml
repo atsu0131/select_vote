@@ -32,18 +32,36 @@
 .menu
   .menuItem.uno
     1
-    %span uno
-  .menuItem.dos
-    2
-    %span dos
-  .menuItem.tres
-    3
-    %span tres
-  .menuItem.cuatro
-    4
-    %span cuatro
-  .menuItem.cinco
-    5
-    %span cinco
+    %span.nav-item= link_to "ホーム", root_path, data: {"turbolinks" => false}
+  - if current_user
+    .menuItem.dos
+      2
+      %span.nav-item= link_to "ログアウト", logout_path, method: :delete
+    - if current_user.admin?
+      .menuItem.tres
+        3
+        %span.nav-item= link_to "ユーザー一覧", admin_users_path
+    - if current_user.admin?
+      .menuItem.cuatro
+        4
+        %span.nav-item 権限者
+    - else
+      .menuItem.cuatro
+      4
+      %span.nav-item 一般ユーザー
+    .menuItem.cinco
+      5
+      %span coming
+  - else
+    .menuItem.dos
+      2
+      %span.nav-item= link_to "ログアウト", logout_path, method: :delete
+    .menuItem.tres
+      3
+      %spanli.nav-item= link_to "新規登録", new_user_path
+    .menuItem.cuatro
+      4
+      %span.nav-item= link_to "ログイン", login_path
+
 .contents_main
   = yield
