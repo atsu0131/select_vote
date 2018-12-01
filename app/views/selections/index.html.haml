@@ -1,9 +1,10 @@
 %h3.title 選挙一覧
-%table
-  %thead
-    %tr
-      %th 名前
-  %tbody
+
+.container_select
+  .main_select
     - @selections.each do |selection|
-      %tr
-        %td= link_to "#{selection.select_name}", selection_voters_path(selection)
+      .box1
+        .select
+          .image
+          %h3.text= link_to "#{selection.select_name}", selection_voters_path(selection)
+  .aside_select
