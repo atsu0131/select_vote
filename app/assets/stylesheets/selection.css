@@ -1,0 +1,49 @@
+
+@media(min-width:768px){
+
+.container_select:after{
+  display: block;
+  clear: both;
+  width: 100%;
+  height: 100%;
+}
+
+.main_select{
+  float: left;
+  width: 80%;
+  height: 1000px;
+  background-color: antiquewhite;
+}
+
+.aside_select{
+  float: left;
+  width: 20%;
+  height: 1000px;
+  background-color: brown;
+}
+
+.box1{
+  height: 100px;
+  background-color: blueviolet;
+  float: left;
+  margin: 10px;
+}
+
+}
+
+.box1{
+  width: 20%;
+  height: 100px;
+  background-color: blueviolet;
+  margin: 10px;
+}
+
+.main_select{
+  height: 1000px;
+  background-color: antiquewhite;
+}
+
+.aside_select{
+  height: 1000px;
+  background-color: brown;
+}
