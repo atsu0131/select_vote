@@ -1,3 +1,11 @@
-%h3 #{@pref.pref_name}のページ
 
-%td= link_to "選挙区", pref_zones_path(@pref)
+.header_pref
+  %p.site-title-sub portfolio
+  %p.site-title #{@pref.pref_name}のページ
+  .buttons
+    %a.button_pref{:href => "#about"} aaa
+    %a.button_pref.button-showy{:href => "#contact"} aaa
+%section#about.about
+%section.works
+  %td= link_to "選挙区", pref_zones_path(@pref)
+%section#contact.contact
