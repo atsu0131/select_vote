@@ -1,7 +1,8 @@
 %h3 #{@selection.select_name}の選挙
 
 
-= link_to "投票事前登録", new_selection_voter_path
+%div= link_to "投票事前登録", new_selection_voter_path, remote: true, class: "btn btn-lg btn-primary"
+#voter-modal.modal.fade{"aria-hidden" => "true", :role => "dialog", :tabindex => "-1"}
 
 .mb-3
 %table.table.table-hover

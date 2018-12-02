@@ -7,6 +7,10 @@ class VotersController < ApplicationController
   def new
     @selection = Selection.find(params[:selection_id])
     @voter = @selection.voters.build
+    respond_to do |format|
+      format.html{ redirect_to @voter, notice: 'User was successfully created.' }
+      format.js {}
+    end
   end
 
   def create
@@ -14,11 +18,12 @@ class VotersController < ApplicationController
     @voter = @selection.voters.build(voter_params)
     @voter.user_id = current_user.id
     @voter.selection_id = @selection.id
-
-    if @voter.save
-      redirect_to selection_voters_path(@selection)
-    else
-      render :new
+    respond_to do |format|
+      if @voter.save
+        format.html { redirect_to selection_voters_path(@selection)}
+      else
+        format.html { render :new }
+      end
     end
   end
 
