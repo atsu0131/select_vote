@@ -1,152 +1,23 @@
--# / モーダル表示用のボタン
--# %button.btn.btn-primary.btn-lg{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"}
--#   Show Modal
--# / モーダル
--# #myModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
--#   .modal-dialog{:role => "document"}
--#     .modal-content
--#       .modal-header
--#         %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
--#           %span{"aria-hidden" => "true"} ×
--#         %h4#myModalLabel.modal-title Lorem ipsum
--#       .modal-body
--#         Lorem 
--#       .modal-footer
--#         %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Close
-
-!!!
-%html
-  %body
-    %p
-      modal
-    %meta{:charset => "utf-8"}/
-    %title [DEMO]jQueryでモーダルウィンドウを作る方法
-    %script{:src => "js/jquery.js"}
-    :javascript
-      $(function(){
-          // 「.modal-open」をクリック
-          $('.modal-open').click(function(){
-              // オーバーレイ用の要素を追加
-              $('body').append('<div class="modal-overlay"></div>');
-              // オーバーレイをフェードイン
-              $('.modal-overlay').fadeIn('slow');
-      
-              // モーダルコンテンツのIDを取得
-              var modal = '#' + $(this).attr('data-target');
-              // モーダルコンテンツの表示位置を設定
-              modalResize();
-               // モーダルコンテンツフェードイン
-              $(modal).fadeIn('slow');
-      
-              // 「.modal-overlay」あるいは「.modal-close」をクリック
-              $('.modal-overlay, .modal-close').off().click(function(){
-                  // モーダルコンテンツとオーバーレイをフェードアウト
-                  $(modal).fadeOut('slow');
-                  $('.modal-overlay').fadeOut('slow',function(){
-                      // オーバーレイを削除
-                      $('.modal-overlay').remove();
-                  });
-              });
-      
-              // リサイズしたら表示位置を再取得
-              $(window).on('resize', function(){
-                  modalResize();
-              });
-      
-              // モーダルコンテンツの表示位置を設定する関数
-              function modalResize(){
-                  // ウィンドウの横幅、高さを取得
-                  var w = $(window).width();
-                  var h = $(window).height();
-      
-                  // モーダルコンテンツの表示位置を取得
-                  var x = (w - $(modal).outerWidth(true)) / 2;
-                  var y = (h - $(modal).outerHeight(true)) / 2;
-      
-                  // モーダルコンテンツの表示位置を設定
-                  $(modal).css({'left': x + 'px','top': y + 'px'});
-              }
-      
-          });
-      });
-    :css
-      .modal-content {
-          position:fixed;
-          display:none;
-          z-index:2;
-          width:50%;
-          margin:0;
-          padding:10px 20px;
-          border:2px solid #aaa;
-          background:#fff;
-      }
-      
-      .modal-content p {
-          margin:0;
-          padding:0;
-      }
-      
-      .modal-overlay {
-          z-index:1;
-          display:none;
-          position:fixed;
-          top:0;
-          left:0;
-          width:100%;
-          height:120%;
-          background-color:rgba(0,0,0,0.75);
-      }
-      
-      .modal-open {
-          color:#00f;
-          text-decoration:underline;
-      }
-      
-      .modal-open:hover {
-          cursor:pointer;
-          color:#f00;
-      }
-      
-      .modal-close {
-          color:#00f;
-          text-decoration:underline;
-      }
-      
-      .modal-close:hover {
-          cursor:pointer;
-          color:#f00;
-      }
-    %a.modal-open{"data-target" => "con1"} リンク1
-    %a.modal-open{"data-target" => "con2"} リンク2
-    %a.modal-open{"data-target" => "con3"} リンク3
-    %a.modal-open{"data-target" => "con4"} リンク4
-    %a.modal-open{"data-target" => "con5"} リンク5
-    #con1.modal-content
-      %p リンク1の内容です。
-      %p
-        %a.modal-close 閉じる
-    #con2.modal-content
-      %p リンク2の内容です。リンク2の内容です。リンク2の内容です。リンク2の内容です。リンク2の内容です。リンク2の内容です。リンク2の内容です。リンク2の内容です。リンク2の内容です。リンク2の内容です。リンク2の内容です。
-      %p
-        %a.modal-close 閉じる
-    #con3.modal-content
-      %p リンク3の内容です。リンク3の内容です。リンク3の内容です。リンク3の内容です。リンク3の内容です。リンク3の内容です。リンク3の内容です。リンク3の内容です。リンク3の内容です。リンク3の内容です。リンク3の内容です。リンク3の内容です。リンク3の内容です。リンク3の内容です。リンク3の内容です。リンク3の内容です。
-      %p
-        %a.modal-close 閉じる
-    #con4.modal-content
-      %p リンク4の内容です。リンク4の内容です。
-      %p
-        %a.modal-close 閉じる
-    #con5.modal-content
-      %p リンク5の内容です。リンク5の内容です。リンク5の内容です。リンク5の内容です。リンク5の内容です。リンク5の内容です。リンク5の内容です。リンク5の内容です。リンク5の内容です。リンク5の内容です。リンク5の内容です。
-      %p
-        %a.modal-close 閉じる
-    %p
-      スクロールしてみてください。モーダルウィンドウは固定されているのがわかるかと思います。
-      %br/
-      ↓
-      %br/
-      ・・・
-      終わり。
-    %p
-      %a{:href => "http://coolwebwindow.com/jquery-lab/archives/304"} &lt;&lt; 記事に戻る
+%p#notice= notice
+%h1 自分の日記
+%table
+  %thead
+    %tr
+      %th タイトル
+      %th 時間
+      %th{:colspan => "3"}
+  %tbody
+    - @blogs.each do |blog|
+      %tr
+        %td= blog.title
+        %td= blog.start_time.strftime("%Y-%m-%d %H:%M")
+        %td= link_to 'Show', blog
+        %td= link_to 'Edit', edit_blog_path(blog.id)
+        %td= link_to 'Destroy',blog_path(blog.id), method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to '日記をかく', new_blog_path
+= month_calendar events: @blogs do |date, blogs|
+  = date.day
+  - blogs.each do |blog|
+    %div
+      = link_to blog.title, blog
