@@ -1,0 +1,13 @@
+%p#notice= notice
+%p
+  %strong タイトル
+  = @blog.title
+%p
+  %strong 時間
+  = @blog.start_time.strftime("%Y-%m-%d %H:%M")
+%p
+  %strong 内容
+  = @blog.content
+= link_to 'Edit', edit_blog_path(@blog)
+|
+= link_to 'Back', blogs_path
