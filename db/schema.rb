@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181203043115) do
+ActiveRecord::Schema.define(version: 20181209064234) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,15 @@ ActiveRecord::Schema.define(version: 20181203043115) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_blogs_on_user_id"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "blog_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["blog_id"], name: "index_favorites_on_blog_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "politicians", force: :cascade do |t|
@@ -99,6 +108,8 @@ ActiveRecord::Schema.define(version: 20181203043115) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "favorites", "blogs"
+  add_foreign_key "favorites", "users"
   add_foreign_key "politicians", "zones"
   add_foreign_key "users", "prefs"
   add_foreign_key "users", "zones"
