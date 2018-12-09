@@ -1,0 +1,23 @@
+// Place all the styles related to the search controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.select {
+  background: yellow;
+}
+.disnon {
+  display: none;
+}
+
+ul#tab li,
+.select{
+  list-style: none;
+  height: 50px;
+  width: 50px;
+  float: left;
+}
+
+.content_wrap{
+  height: 50px;
+  width: 50px;
+}

@@ -1,0 +1,30 @@
+%h3.title 政治家一覧
+%table
+  %thead
+    %tr
+      %th 名前
+  %tbody
+    - @politicians.each do |politician|
+      %tr
+        %td= politician.name
+
+%ul#tab
+  %li.select タブ1
+  %li タブ2
+  %li タブ3
+  %li タブ4
+.content_wrap 内容1
+.content_wrap.disnon 内容2
+.content_wrap.disnon 内容3
+.content_wrap.disnon 内容4
+
+:javascript
+  $(function() {
+      $("#tab li").click(function() {
+          var num = $("#tab li").index(this);
+          $(".content_wrap").addClass('disnon');
+          $(".content_wrap").eq(num).removeClass('disnon');
+          $("#tab li").removeClass('select');
+          $(this).addClass('select')
+      });
+  });
