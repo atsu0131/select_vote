@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root to: 'toppages#index'
   resources :toppages, only: %i[index]
 
@@ -9,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :blogs
+  resources :searchs
 
   resources :selections do
     resources :voters do
