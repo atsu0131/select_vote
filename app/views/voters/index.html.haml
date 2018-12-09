@@ -1,25 +1,32 @@
 %h3 #{@selection.select_name}の選挙
 
-
 %div= link_to "投票事前登録", new_selection_voter_path, remote: true, class: "btn btn-lg btn-primary"
 #voter-modal.modal.fade{"aria-hidden" => "true", :role => "dialog", :tabindex => "-1"}
 
-.mb-3
-%table.table.table-hover
-  %thead.thead-default
-    %tr
-      %th 自分の氏名
-      %th
-      %th
-      %th 投票した人
-  %tbody
-    - @voters.each do |voter|
-      %tr
-        %td= voter.user.name
-        %td= link_to "やり直す", selection_voter_path(@selection, voter), method: :delete,remote: true, data: { confirm: "削除します"}, class: "btn btn-danger delete"
-        - unless voter.vote_actions.present?
-          %td= link_to "投票を行う", selection_voter_path(@selection, voter), class: "btn btn-success"
-        - else
-          %td= "投票済"
-        - voter.vote_politicians.each do |action|
-          %td= action.name
+- @voters.each do |voter|
+  - if voter.user.present?
+    .main
+      .wrapper
+        .container_top
+          %dl
+            %dt 自分の氏名
+            - @voters.each do |voter|
+              %dd= voter.user.name
+              - unless voter.vote_actions.present?
+                %dd= link_to "投票を行う", selection_voter_path(@selection, voter), class: "btn btn-success"
+              - else
+                %dd= "投票済"
+        .container_down
+          %dl
+            %dt 投票した人
+            - @voters.each do |voter|
+              - voter.vote_politicians.each do |action|
+                %dd= action.name
+    .link
+      .link_contain
+        - @voters.each do |voter|
+          %tr
+            %td= link_to "やり直す", selection_voter_path(@selection, voter), method: :delete,remote: true, data: { confirm: "削除します"}, class: "btn btn-danger delete"
+
+      
+
