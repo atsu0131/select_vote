@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
     end
   end
 
-  def destory
+  def destroy
     reset_session
     redirect_to root_path, notice: "ログアウトしました"
   end

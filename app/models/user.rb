@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :blogs, dependent: :destroy
   belongs_to :pref
   belongs_to :zone
+  has_many :favorites, dependent: :destroy
 
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true
