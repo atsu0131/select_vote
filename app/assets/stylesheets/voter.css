@@ -2,3 +2,51 @@
   margin-top: 5%;
   margin-left: 40%;
 }
+
+.main{
+  height: auto;
+  width: 100%;
+}
+
+.wrapper{
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.container_top{
+  height: 100px;
+  width: 40%;
+  background-color: blueviolet;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.container_top dl dt,
+.container_top dl dd{
+  text-align: center;
+}
+
+.container_down{
+  height: 300px;
+  width: 40%;
+  background-color: aquamarine;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.container_down dl dt,
+.container_down dl dd{
+  text-align: center;
+}
+
+.link{
+  width: 100%;
+  height: auto;
+}
+
+.link_contain{
+  height: 100px;
+  width: 40%;
+  margin-right: auto;
+  margin-left: auto;
+}
