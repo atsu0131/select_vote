@@ -39,7 +39,7 @@ class VotersController < ApplicationController
   def destroy
     @voter = Voter.find(params[:id])
     @voter.destroy
-    head :no_content
+    redirect_to selection_voters_path
   end
 
   private
